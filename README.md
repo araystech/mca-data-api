@@ -3,9 +3,13 @@ Date: 25/12/2019
 Indian Company Master Data APIs 
 
 Get Company Master Data from APIs via Compdata.in
+
 API Documents Link: https://compdata.in/api-docs/
 
+
 List of APIs:
+
+
 Get CIN By Name : Request for CIN No. of company based on name of company.
 
 Get DIN By Name : Request for DIN No. of Director based on Name and Date of Birth (Optional).
