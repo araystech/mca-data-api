@@ -1,0 +1,12 @@
+require "uri"
+require "net/http"
+
+url = URI("compdatasandbox.96.lt/getDinByName.php")
+
+http = Net::HTTP.new(url.host, url.port);
+request = Net::HTTP::Post.new(url)
+request["Content-Type"] = "multipart/form-data; boundary=--------------------------520251517599687495464727"
+form_data = [['name', '{director_name}'],['apiid', '{apiid}'],['apipass', '{apipassword}']]
+request.set_form form_data, 'multipart/form-data'
+response = http.request(request)
+puts response.read_body

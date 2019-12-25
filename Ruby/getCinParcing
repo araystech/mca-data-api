@@ -1,0 +1,12 @@
+require "uri"
+require "net/http"
+
+url = URI("compdatasandbox.96.lt/getCinParcing.php")
+
+http = Net::HTTP.new(url.host, url.port);
+request = Net::HTTP::Post.new(url)
+request["Content-Type"] = "multipart/form-data; boundary=--------------------------776887819849444122523606"
+form_data = [['srn', '{srn}'],['cin', '{cin}'],['apiid', '{apiid}'],['apipass', '{apipassword}']]
+request.set_form form_data, 'multipart/form-data'
+response = http.request(request)
+puts response.read_body

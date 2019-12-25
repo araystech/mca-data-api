@@ -1,0 +1,12 @@
+require "uri"
+require "net/http"
+
+url = URI("compdatasandbox.96.lt/requestDownloadFile.php")
+
+http = Net::HTTP.new(url.host, url.port);
+request = Net::HTTP::Post.new(url)
+request["Content-Type"] = "multipart/form-data; boundary=--------------------------735944852158856520680472"
+form_data = [['cin', '{cin}'],['apiid', '{apiid}'],['apipass', '{apipassword}']]
+request.set_form form_data, 'multipart/form-data'
+response = http.request(request)
+puts response.read_body
